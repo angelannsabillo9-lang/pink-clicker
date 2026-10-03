@@ -1,0 +1,712 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #e8d5ff);
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #d63384;
+    margin-top: 20px;
+    font-size: 40px;
+}
+
+h3 {
+    color: #7a4b63;
+}
+
+p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #5c3b4d;
+}
+
+button {
+    font-family: Arial, sans-serif;
+}
+
+.difficulty {
+    margin-top: 15px;
+}
+
+.difficulty button {
+    padding: 10px 18px;
+    margin: 5px;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+    color: #d63384;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid #d63384;
+}
+
+.difficulty button:hover {
+    background-color: #ffd1e3;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(214, 51, 132, 0.2);
+}
+
+.difficulty button:active {
+    transform: scale(0.95);
+}
+
+#startButton,
+#restartButton {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 20px;
+    background-color: #d63384;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#startButton:hover,
+#restartButton:hover {
+    background-color: #b52b70;
+}
+
+#startButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#gameArea {
+    width: 500px;
+    height: 350px;
+    background-color: white;
+    border: 4px solid #d63384;
+    border-radius: 20px;
+    margin: 25px auto;
+    position: relative;
+    overflow: hidden;
+}
+#target {
+    position: absolute;
+    padding: 0;
+    border: 4px solid white;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff69b4, #d63384);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(214, 51, 132, 0.35),
+        inset 0 0 10px rgba(255, 255, 255, 0.35);
+
+    transition: transform 0.1s ease, box-shadow 0.1s ease, left 0.2s ease, top 0.2s ease;
+}
+
+#target:hover {
+    background: linear-gradient(135deg, #ff7fc1, #e04a91);
+
+    box-shadow:
+        0 7px 20px rgba(214, 51, 132, 0.45),
+        inset 0 0 12px rgba(255, 255, 255, 0.4);
+
+    transform: scale(1.08);
+}
+#target:active {
+    transform: scale(0.85);
+}
+
+#target.pop {
+    animation: pop 0.15s ease;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+#gameOver {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    border: 3px solid #d63384;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    z-index: 10;
+}
+
+#gameOver h2 {
+    color: #d63384;
+}
+
+#gameOver p {
+    font-size: 18px;
+}
+
+#playAgain {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #d63384;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#playAgain:hover {
+    background-color: #b52b70;
+}
+@media (max-width: 600px) {
+        .scoreBoard {
+        gap: 8px;
+    }
+
+    .scoreBoard div {
+        min-width: 90px;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .scoreBoard span {
+        font-size: 21px;
+    }
+
+}  
+    .howToPlay {
+        width: auto;
+        padding: 12px;
+    }
+
+    #gameStatus {
+        max-width: 85%;
+    }
+    #startButton,
+    #restartButton,
+    #clearButton {
+        min-width: 110px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    #gameArea {
+        width: 90%;
+        height: 350px;
+    }
+
+    .difficulty button {
+    padding: 10px 18px;
+    margin: 5px;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+    color: #d63384;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid #d63384;
+
+    transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+    #startButton,
+    #restartButton {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+#countdown {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    font-size: 70px;
+    font-weight: bold;
+    color: #d63384;
+    
+    z-index: 20;
+}
+#bestMessage {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d63384;
+    margin: 10px 0 20px;
+}
+#readyText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 45px;
+    font-weight: bold;
+    color: #d63384;
+
+    z-index: 15;
+}
+#readyText {
+    animation: readyPulse 0.8s ease-in-out infinite;
+}
+
+@keyframes readyPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+#countdown {
+    animation: countdownPop 0.4s ease;
+}
+
+@keyframes countdownPop {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+#startButton,
+#restartButton,
+#clearButton,
+#playAgain {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#startButton:hover,
+#restartButton:hover,
+#clearButton:hover,
+#playAgain:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(214, 51, 132, 0.25);
+}
+
+#startButton:active,
+#restartButton:active,
+#clearButton:active,
+#playAgain:active {
+    transform: scale(0.95);
+}
+#gameArea {
+    box-shadow: 0 8px 25px rgba(214, 51, 132, 0.18);
+}
+#gameArea::before,
+#gameArea::after {
+    content: "♡";
+    position: absolute;
+    font-size: 35px;
+    color: #ffd1e3;
+    pointer-events: none;
+}
+
+#gameArea::before {
+    top: 15px;
+    left: 20px;
+}
+
+#gameArea::after {
+    bottom: 15px;
+    right: 20px;
+}
+#score {
+    display: inline-block;
+    transition: transform 0.15s ease;
+}
+
+#score.scorePop {
+    transform: scale(1.3);
+}
+#time {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+#time.warning {
+    transform: scale(1.3);
+    font-weight: bold;
+}
+#time.warning {
+    animation: timerWarning 0.6s ease-in-out infinite;
+}
+
+@keyframes timerWarning {
+    0% {
+        transform: scale(1.3);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1.3);
+    }
+}
+.howToPlay {
+    width: 450px;
+    max-width: 90%;
+    margin: 15px auto 20px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #f3a6c8;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(214, 51, 132, 0.12);
+}
+
+.howToPlay h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #d63384;
+}
+
+.howToPlay p {
+    font-size: 16px;
+    margin: 6px 0;
+    color: #6b4356;
+}
+#startButton {
+    background: linear-gradient(135deg, #ff69b4, #d63384);
+    font-weight: bold;
+    box-shadow: 0 5px 12px rgba(214, 51, 132, 0.25);
+}
+
+#startButton:hover {
+    background: linear-gradient(135deg, #ff85c1, #e04a91);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 15px rgba(214, 51, 132, 0.3);
+}
+#clearButton {
+    padding: 10px 20px;
+    margin: 5px;
+    border: 2px solid #d63384;
+    border-radius: 20px;
+    background-color: white;
+    color: #d63384;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#clearButton:hover {
+    background-color: #ffd1e3;
+    transform: translateY(-2px);
+}
+#score,
+#highScore,
+#time {
+    color: #d63384;
+    font-size: 24px;
+    font-weight: bold;
+}
+#difficulty {
+    color: #d63384;
+    font-weight: bold;
+}
+#gameArea {
+    animation: gameAreaGlow 2s ease-in-out infinite;
+}
+
+@keyframes gameAreaGlow {
+    0% {
+        box-shadow: 0 8px 25px rgba(214, 51, 132, 0.18);
+    }
+
+    50% {
+        box-shadow: 0 8px 30px rgba(214, 51, 132, 0.35);
+    }
+
+    100% {
+        box-shadow: 0 8px 25px rgba(214, 51, 132, 0.18);
+    }
+}
+body::before,
+body::after {
+    content: "♡";
+    position: fixed;
+    font-size: 80px;
+    color: rgba(214, 51, 132, 0.12);
+    z-index: -1;
+}
+
+body::before {
+    top: 100px;
+    left: 40px;
+}
+
+body::after {
+    bottom: 80px;
+    right: 40px;
+}
+#bestMessage {
+    animation: bestScorePop 0.6s ease;
+}
+
+@keyframes bestScorePop {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+#restartButton {
+    background: linear-gradient(135deg, #c77dff, #9d4edd);
+}
+
+#restartButton:hover {
+    background: linear-gradient(135deg, #d8a4ff, #b56bea);
+}
+#gameOver {
+    animation: gameOverPop 0.5s ease;
+}
+
+@keyframes gameOverPop {
+    0% {
+        transform: translate(-50%, -50%) scale(0.7);
+        opacity: 0;
+    }
+
+    70% {
+        transform: translate(-50%, -50%) scale(1.05);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+body {
+    animation: pageFadeIn 0.8s ease;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+h1 {
+    text-shadow: 0 3px 10px rgba(214, 51, 132, 0.25);
+    animation: titleGlow 2s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+#startButton,
+#restartButton,
+#clearButton {
+    min-width: 130px;
+    font-weight: bold;
+}
+.difficulty button.selected {
+    background-color: #d63384;
+    color: white;
+    box-shadow: 0 4px 10px rgba(214, 51, 132, 0.25);
+    transform: scale(1.05);
+}
+#difficultyHint {
+    font-size: 14px;
+    color: #a64d79;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+#gameStatus {
+    display: block;
+    padding: 8px 18px;
+    margin: 5px auto 10px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 2px solid #f3a6c8;
+    border-radius: 20px;
+    color: #d63384;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 3px 10px rgba(214, 51, 132, 0.12);
+}
+#playAgain {
+    background: linear-gradient(135deg, #ff69b4, #d63384);
+    font-weight: bold;
+    box-shadow: 0 5px 12px rgba(214, 51, 132, 0.25);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#playAgain:hover {
+    background: linear-gradient(135deg, #ff85c1, #e04a91);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 15px rgba(214, 51, 132, 0.3);
+}
+
+#playAgain:active {
+    transform: scale(0.95);
+}
+.difficulty {
+    display: inline-block;
+    padding: 8px 15px;
+    border: 2px solid #f3a6c8;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+footer {
+    margin-top: 20px;
+    padding: 15px;
+    color: #a64d79;
+    font-size: 14px;
+    font-weight: bold;
+}
+#gameStatus {
+    animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+#target {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    letter-spacing: 1px;
+}
+#target {
+    user-select: none;
+    -webkit-user-select: none;
+}
+#target {
+    cursor: pointer;
+}
+
+#target:hover {
+    cursor: pointer;
+}
+#highScore {
+    text-shadow: 0 2px 8px rgba(214, 51, 132, 0.25);
+}
+.scoreBoard {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px auto;
+    flex-wrap: wrap;
+}
+
+.scoreBoard div {
+    min-width: 120px;
+    padding: 12px 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #f3a6c8;
+    border-radius: 15px;
+    color: #a64d79;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(214, 51, 132, 0.12);
+}
+
+.scoreBoard span {
+    display: block;
+    margin-top: 5px;
+    color: #d63384;
+    font-size: 25px;
+}
+.titleSection {
+    display: inline-block;
+    padding: 15px 30px;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.45);
+    border: 2px solid rgba(243, 166, 200, 0.7);
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(214, 51, 132, 0.1);
+}
+
+.titleSection h1 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.titleSection h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+button {
+    transition: all 0.15s ease;
+}
+
+::selection {
+    background-color: #f3a6c8;
+    color: white;
+}

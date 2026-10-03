@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pink Clicker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="titleSection">
+    <h1>🎀 PINK CLICKER 🎀</h1>
+    <h3>How fast can you click?</h3>
+</div>
+    <p>🎯 Click the pink button as many times as you can before the timer ends!</p>
+    <div class="howToPlay">
+    <h3>🎀 HOW TO PLAY 🎀</h3>
+    <p>1. Choose your difficulty.</p>
+    <p>2. Click Start Game.</p>
+    <p>3. Wait for READY → 3 → 2 → 1 → GO!</p>
+    <p>4. Click the pink button as many times as possible.</p>
+    <p>5. Beat your High Score! 🏆</p>
+</div>
+
+    <div class="scoreBoard">
+    <div>
+        🎀 SCORE
+        <span id="score">0</span>
+    </div>
+
+    <div>
+        🏆 HIGH SCORE
+        <span id="highScore">0</span>
+    </div>
+
+    <div>
+        ⏰ TIME
+        <span id="time">30</span>
+    </div>
+</div>
+    <p>Difficulty: <span id="difficulty">Medium</span></p>
+    <p id="difficultyHint">🎀 Medium mode selected!</p>
+
+    <div>
+        <button id="easyButton">Easy</button>
+        <button id="mediumButton">Medium</button>
+        <button id="hardButton">Hard</button>
+    </div>
+
+    <br>
+
+    <button id="startButton">Start Game</button>
+    <button id="restartButton">Restart Game</button>
+    <button id="clearButton">Clear High Score</button>
+
+    <p id="gameStatus">💗 Ready to play!</p>
+    <div id="gameArea">
+        <div id="countdown"></div>
+        <div id="readyText">🎀 READY? 🎀</div>
+
+    <button id="target">CLICK!</button>
+
+    <div id="gameOver">
+        <h2>🎀 GAME OVER 🎀</h2>
+        <p>Your Score: <span id="finalScore">0</span></p>
+        <p id="bestMessage"></p>
+        <button id="playAgain">Play Again</button>
+    </div>
+
+</div>
+
+    <script src="script.js"></script>
+    <footer>
+    🎀 Made with 💗 by Pink Clicker
+</footer>
+
+</body>
+
+</html>
